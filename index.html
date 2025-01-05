@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة روابط</title>
+    <style>
+        /* تنسيق عام للصفحة */
+        body {
+            font-family: "Tajawal", Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile {
+            margin-top: 40px;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 4px solid #ffcc00;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+
+        .bio {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #ffcc00;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            padding: 15px;
+            width: 80%;
+            background: linear-gradient(135deg, #004d99, #003366);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #0059b3, #003d80);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* تأثير الذكر */
+        #zikr {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #zikr.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        #zikr.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <img src="Pr.jpeg" alt="صورة البروفايل">
+        <h1>@quran.kkar99m</h1>
+        <p class="bio" id="zikr">سبحان الله العظيم وبحمده</p>
+    </div>
+    <div class="links">
+        <a class="link" href="https://www.tiktok.com/@quran.kkar99m?_t=ZS-8soQmsxuobP&_r=1">
+            <span>صفحتي علي تيك تيك </span>
+        </a>
+        <a class="link" href="https://t.me/MohamedRedh">
+            <span>شروحات تصاميم (قرآنية)</span>
+        </a>
+        <a class="link" href="https://t.me/qra6n">
+            <span>الرد على الشبهات الشيعية</span>
+        </a>
+        <a class="link" href="#https://t.me/ii_2bot">
+            <span>حسابي تلجرام للتواصل</span>
+        </a>
+        <a class="link" href="#">
+            <span>قناة اليوتيوب</span>
+        </a>
+    </div>
+    <footer>
+        <p>حقوق الطبع والنشر &copy; 2025 - جميع الحقوق محفوظة. <a href="#">شروط الاستخدام</a></p>
+    </footer>
+
+    <script>
+        // قائمة الأذكار
+        const azkar = [
+            "سبحان الله العظيم وبحمده",
+            "لا إله إلا الله وحده لا شريك له",
+            "اللهم صل على محمد وعلى آل محمد",
+            "سبحان الله والحمد لله ولا إله إلا الله والله أكبر",
+            "أستغفر الله وأتوب إليه"
+        ];
+
+        // تحديد العنصر
+        const zikrElement = document.getElementById("zikr");
+        let currentIndex = 0;
+
+        // تحديث الذكر مع التأثير
+        function updateZikr() {
+            // إزالة التأثير الحالي
+            zikrElement.classList.add("fade-out");
+
+            // تغيير النص بعد انتهاء التأثير
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % azkar.length;
+                zikrElement.textContent = azkar[currentIndex];
+                zikrElement.classList.remove("fade-out");
+                zikrElement.classList.add("fade-in");
+            }, 1000); // مدة التأثير تساوي 0.5 ثانية
+        }
+
+        // تغيير الذكر كل 3 ثوانٍ
+        setInterval(updateZikr, 5000);
+    </script>
+</body>
+          </html>
